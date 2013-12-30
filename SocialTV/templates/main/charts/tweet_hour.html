@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<link href="/static/nvd3/src/nv.d3.css" rel="stylesheet" type="text/css">
+<meta charset="utf-8">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+  <script src="/static/javascript/jquery/jquery-1.10.2.js"></script>
+  <script src="/static/javascript/jquery/jquery-ui.js"></script>
+  <script src="/static/javascript/charts.js"></script>
+<script>
+  $(function() {
+    $( "#from" ).datepicker({
+  		minDate: new Date(parseInt({{minDate}})),
+  		 maxDate: new Date(parseInt({{maxDate}})),
+      onClose: function( selectedDate ) {
+        $( "#to" ).datepicker( "option", "minDate", selectedDate );
+      }
+    });
+    $( "#to" ).datepicker({
+    	minDate: new Date(parseInt({{minDate}})),
+      maxDate: new Date(parseInt({{maxDate}})),
+      onClose: function( selectedDate ) {
+        $( "#from" ).datepicker( "option", "maxDate", selectedDate );
+      }
+    });
+  });
+  </script>
+<style>
+
+body {
+  overflow-y:scroll;
+  font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+  font-size: 62.5%;
+}
+
+text {
+  font: 12px sans-serif;
+}
+
+svg {
+  display: block;
+}
+
+#chart svg {
+  height: 300px;
+  width: 500px
+  min-width: 100px;
+  min-height: 100px;
+/*
+  margin: 50px;
+  Minimum height and width is a good idea to prevent negative SVG dimensions...
+  For example width should be =< margin.left + margin.right + 1,
+  of course 1 pixel for the entire chart would not be very useful, BUT should not have errors
+*/
+}
+
+</style>
+<body>
+<label for="from">From</label>
+<input type="text" id="from" name="from">
+<label for="to">to</label>
+<input type="text" id="to" name="to">
+ <button type="button" onClick="redraw(rawData)">Go</button>
+ <button type="button" onClick="fullTime(rawData)">Full Data</button>
+  <div id="chart" class='with-3d-shadow with-transitions'>
+    <svg style="height: 400px;width: 700px;"></svg>
+  </div>
+
+<script src="/static/nvd3/lib/d3.v3.js"></script>
+<script src="/static/nvd3/lib/fisheye.js"></script>
+<script src="/static/nvd3/nv.d3.js"></script>
+<script src="/static/nvd3/src/tooltip.js"></script>
+<script src="/static/nvd3/src/utils.js"></script>
+<script src="/static/nvd3/src/models/legend.js"></script>
+<script src="/static/nvd3/src/models/axis.js"></script>
+<script src="/static/nvd3/src/models/scatter.js"></script>
+<script src="/static/nvd3/src/models/lineWithFisheye.js"></script>
+<script src="/static/nvd3/src/models/lineWithFisheyeChart.js"></script>
+<script>
+var rawData=getData();
+
+fullTime(rawData);
+
+// Wrapping in nv.addGraph allows for '0 timeout render', stors rendered charts in nv.graphs, and may do more in the future... it's NOT required
+
+function getData() {
+	
+
+  var data = [];
+ 
+{% if hourTweetData %}
+	{% for row in hourTweetData %}
+		data.push({x: {{row.0}}, y: {{row.1}}}); 
+	{% endfor %}
+{% endif %}
+ return data;
+}
+
+function processData(data)
+{
+	 return [
+	         {
+	           values: data,
+	           key: "Tweets"
+	          // color: "#ff7f0e"
+	         }
+	       ];
+}
+
+
+</script>

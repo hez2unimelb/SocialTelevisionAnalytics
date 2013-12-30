@@ -1,0 +1,103 @@
+
+<!doctype html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+{% load render_table from django_tables2 %}
+<html class="no-js" lang="en" data-useragent="Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social TV</title>
+
+    
+    <meta name="description" content="Social TV@NTU" />
+    
+    <meta name="author" content="zheavencity@gmail.com" />
+    <meta name="copyright" content="Cemnet@NTU Copyright (c) 2013" />
+
+    <link rel="stylesheet" href="/static/main/css/foundation.css" />
+     <link rel="stylesheet" href="{{ STATIC_URL }}django_tables2/themes/paleblue/css/screen.css" />
+    <script src="/static/main/css/modernizr.js"></script>
+  </head>
+  <body>
+    
+
+<!-- Nav Bar -->
+
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="nav-bar right">
+       <ul class="button-group">
+         <li><a href="/" class="button">Home</a></li>
+         <li><a href="/tvprogram" class="button">TV Programs</a></li>
+         <li><a href="#" class="button">TV Channels</a></li>
+         <li><a href="#" class="button">Login</a></li>
+        </ul>
+      </div>
+      <h1>Social Cloud Television<br><small>@Cemnet from NTU</small></h1>
+      <hr />
+    </div>
+  </div>
+
+  <!-- End Nav -->
+
+
+  <!-- Main Page Content and Sidebar -->
+
+  <div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-10 columns" role="content">
+      <article>
+
+        <h3><a href="#">TV Program Metrics</a></h3>
+
+     	  {% render_table metrics %}
+      </article>
+      <article>
+
+        <h3><a href="#">TV Program List</a></h3>
+
+     	  {% render_table programs %}
+      </article>
+      <hr />
+
+
+    </div>
+
+    <!-- End Main Content -->
+
+  </div>
+
+  <!-- End Main Content and Sidebar -->
+
+
+  <!-- Footer -->
+
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-6 columns">
+          <p>&copy; Copyright Cemnet@NTU.</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="/">Home</a></li>
+            <li><a href="/tvprogram">TV Programs</a></li>
+            <li><a href="#">TV Channels</a></li>
+            <li><a href="#">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <script src="/static/main/css/jquery.js"></script>
+    <script src="/static/main/css/foundation.js"></script>
+    <script>
+      $(document).foundation();
+
+      var doc = document.documentElement;
+      doc.setAttribute('data-useragent', navigator.userAgent);
+    </script>
+  </body>
+</html>

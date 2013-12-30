@@ -1,0 +1,267 @@
+
+<!doctype html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" data-useragent="Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social TV</title>
+
+    
+    <meta name="description" content="Social TV@NTU" />
+    
+    <meta name="author" content="zheavencity@gmail.com" />
+    <meta name="copyright" content="Cemnet@NTU Copyright (c) 2013" />
+    <link rel="stylesheet" href="/static/main/css/foundation.css" />
+    <script src="/static/main/css/modernizr.js"></script>
+    <link rel='stylesheet' type='text/css' href='/static/css/menu/styles.css' />
+        <link rel='stylesheet' type='text/css' href='/static/css/menu/styles2.css' />
+	<script src='/static/javascript/jquery.min.js'></script>
+	<script type='text/javascript' src='/static/javascript/menu_jquery.js'></script>
+	<script src="/static/tabbedcontent/tabcontent.js" type="text/javascript"></script>
+    <link href="/static/tabbedcontent/template1/tabcontent.css" rel="stylesheet" type="text/css" />
+     <script src="/static/pace/pace.js"></script>
+  <link href="/static/pace/themes/pace-theme-loading-bar.css" rel="stylesheet" />
+  <style>
+div.pos_fixed
+{
+position:fixed;
+top:50%;
+right:10%;
+}
+</style>
+  </head>
+  <body>
+    
+<div class="pos_fixed">
+<div id='cssmenu'>
+<ul>
+   <li class='active'><a href='#des'><span>Brief Description</span></a></li>
+   <li class='has-sub'><a href='#metric1'><span>Metrics of Tweets</span></a>
+
+   </li>
+   <li class='has-sub'><a href='#metric2'><span>Metrics of Comments and Reposts</span></a>
+     
+   </li>
+      <li class='has-sub'><a href='#metric3'><span>Metrics of Topics and Keywords</span></a>
+     
+   </li>
+         <li class='has-sub'><a href='#metric4'><span>Metrics of Users</span></a>
+     
+   </li>
+   <li class='last'><a href='#top'><span>Top</span></a></li>
+</ul>
+</div>
+</div>
+<!-- Nav Bar -->
+
+  <div class="row" id="top">
+    <div class="large-7 columns">
+      <h1>Social Television Analytics<br><small>from Cemnet@NTU</small></h1>
+      
+    </div>
+    <div class="large-2 columns">
+    <p> </p>
+    </div>
+     <div class="large-4 columns">
+     <img src="/static/images/ntu_logo.jpg" height="10px">
+    </div>
+    <hr/>
+  </div>
+
+  <!-- End Nav -->
+
+
+  <!-- Main Page Content and Sidebar -->
+
+  <div class="row">
+
+    <!-- Sidebar -->
+
+    <aside class="large-3 columns">
+	<div class="row">
+     <div id='cssmenu2'>
+<ul>
+   <li class='active'><a href='/'><span>Home</span></a></li>
+   <li class='has-sub'><a href='#'><span>TV Programs</span></a>
+      <ul>
+      	{% if pNames %}
+      	{% for name in pNames %}
+      	   <li><a href='/one_program/{{name}}/'><span>{{name}}</span></a></li>
+		{% endfor %} 
+		{% endif %}
+      </ul>
+   </li>
+   <li class='has-sub'><a href='#'><span>TV Series</span></a>
+      <ul>
+      	{% if sNames %}
+      	{% for name in sNames %}
+      	   <li><a href='/one_program/{{name}}/'><span>{{name}}</span></a></li>
+		{% endfor %} 
+		{% endif %}
+      </ul>
+   </li>
+   <li class='last'><a href='#'><span>Contact</span></a></li>
+</ul>
+</div>
+	</div>
+    </aside>
+    <!-- End Sidebar -->
+    <!-- Main Blog Content -->
+    <div class="large-9 columns" role="content">
+
+      <article id="des">
+
+       
+        <h3><a href="#">{{name}}</a></h3>
+		 <div class="row">
+          <div class="large-6 columns">
+            <p>{{description}}</p>
+          </div>
+          <div class="large-6 columns">
+            <img src="/static/images/LongmenExpress.jpg" />
+          </div>
+        </div>
+<div style="width: 760px; margin: 0 auto;" id="metric1">
+        <ul class="tabs" data-persist="true">
+            <li><a href="#view1">Tweets</a></li>
+             <li><a href="#view5">Tweets in Location</a></li>
+             <li><a href="#view6">24-hour Tweets</a></li>
+        </ul>
+        <div class="tabcontents">
+
+            <div id="view1">
+               <iframe width=700px height=400px scrolling=no src="/hour_tweets"></iframe>
+             <hr/>
+                <b>Description</b>
+                <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...isquam est qui dolorem ipsum quia,isquam est qui dolorem ipsum quia</p>       
+            </div>
+             <div id="view5">
+               <iframe width=700px height=750px scrolling=no src="/location_tweets"></iframe>
+             <hr/>
+                <b>Description</b>
+                <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...isquam est qui dolorem ipsum quia,isquam est qui dolorem ipsum quia</p>
+            </div>
+              <div id="view6">
+               <iframe width=700px height=400px scrolling=no src="/oneday_hour_tweets/"></iframe>
+             <hr/>
+                <b>Description</b>
+                <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...isquam est qui dolorem ipsum quia,isquam est qui dolorem ipsum quia</p>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div style="width: 760px; margin: 0 auto;" id="metric2">
+        <ul class="tabs" data-persist="true">
+            <li><a href="#view21">Comments</a></li>
+            <li><a href="#view31">Reposts</a></li>
+        </ul>
+        <div class="tabcontents">
+            <div id="view21">
+               <iframe width=700px height=400px scrolling=no src="/hour_comments"></iframe>
+             <hr/>
+                <b>Description</b>
+                <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...isquam est qui dolorem ipsum quia,isquam est qui dolorem ipsum quia</p>       
+            </div>
+             <div class="tabcontents">
+             <div id="view31">
+               <iframe width=700px height=400px scrolling=no src="/hour_reposts"></iframe>
+             <hr/>
+                <b>Description</b>
+                <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...isquam est qui dolorem ipsum quia,isquam est qui dolorem ipsum quia</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    <hr/>
+      <div style="width: 760px; margin: 0 auto;" id="metric3">
+        <ul class="tabs" data-persist="true">
+            <li><a href="#view41">Keyword Cloud</a></li>
+            <li><a href="#view42">Topic Cluster</a></li>
+        </ul>
+        <div class="tabcontents">
+             <div id="view41">
+               <iframe width=700px height=700px scrolling=no src="/keyword_cloud"></iframe>
+             <hr/>
+                <b>Description</b>
+                <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...isquam est qui dolorem ipsum quia,isquam est qui dolorem ipsum quia</p>
+            </div>
+        </div>
+         <div class="tabcontents">
+             <div id="view42">
+               <iframe width=700px height=700px scrolling=no src="/topic_bubble"></iframe>
+             <hr/>
+                <b>Description</b>
+                <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...isquam est qui dolorem ipsum quia,isquam est qui dolorem ipsum quia</p>
+            </div>
+        </div>
+    </div>
+    <hr/>
+	      <div style="width: 760px; margin: 0 auto;" id="metric4">
+        <ul class="tabs" data-persist="true">
+            <li><a href="#view51">User Gender</a></li>
+             <li><a href="#view52">Verified User</a></li>
+        </ul>
+        <div class="tabcontents">
+             <div id="view51">
+               <iframe width=700px height=450px scrolling=no src="/gender_pie"></iframe>
+             <hr/>
+                <b>Description</b>
+                <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...isquam est qui dolorem ipsum quia,isquam est qui dolorem ipsum quia</p>
+            </div>
+               <div id="view52">
+               <iframe width=700px height=450px scrolling=no src="/verify_pie"></iframe>
+             <hr/>
+                <b>Description</b>
+                <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...isquam est qui dolorem ipsum quia,isquam est qui dolorem ipsum quia</p>
+            </div>
+        </div>
+    </div>
+      </article>
+
+      <hr />
+      <article>
+			
+
+      </article>
+
+      <hr />
+
+    </div>
+    <!-- End Main Content -->
+
+  </div>
+
+  <!-- End Main Content and Sidebar -->
+
+
+  <!-- Footer -->
+
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-6 columns">
+          <p>&copy; Copyright Cemnet@NTU.</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="/">Home</a></li>
+            <li><a href="tvprogram/">TV Programs</a></li>
+            <li><a href="#">TV Channels</a></li>
+            <li><a href="#">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <script src="/static/main/css/jquery.js"></script>
+    <script src="/static/main/css/foundation.js"></script>
+    <script>
+      $(document).foundation();
+
+      var doc = document.documentElement;
+      doc.setAttribute('data-useragent', navigator.userAgent);
+    </script>
+  </body>
+</html>

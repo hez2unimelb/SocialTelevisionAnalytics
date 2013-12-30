@@ -1,0 +1,699 @@
+
+<!doctype html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+{% load render_table from django_tables2 %}
+<html class="no-js" lang="en" data-useragent="Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social TV</title>
+
+    
+    <meta name="description" content="Social TV@NTU" />
+    
+    <meta name="author" content="zheavencity@gmail.com" />
+    <meta name="copyright" content="Cemnet@NTU Copyright (c) 2013" />
+
+
+    <link rel="stylesheet" href="/static/main/css/foundation.css" />
+     <link rel="stylesheet" href="{{ STATIC_URL }}django_tables2/themes/paleblue/css/screen.css" />
+    <script src="/static/main/css/modernizr.js"></script>
+    <script type="text/javascript" src="/static/javascript/jquery.min.js"></script>
+<script type="text/javascript" src="/static/javascript/animatedcollapse.js">
+</script>
+
+
+<script type="text/javascript">
+
+animatedcollapse.addDiv('jason', 'fade=1,height=420px')
+animatedcollapse.addDiv('jason2', 'fade=1,height=420px')
+animatedcollapse.addDiv('jason3', 'fade=1,height=420px')
+animatedcollapse.addDiv('jason4', 'fade=1,height=420px')
+animatedcollapse.addDiv('jason5', 'fade=1,height=420px')
+animatedcollapse.addDiv('jason6', 'fade=1,height=420px')
+animatedcollapse.addDiv('jason7', 'fade=1,height=420px')
+animatedcollapse.addDiv('jason8', 'fade=1,height=420px,width=800px')
+animatedcollapse.ontoggle=function($, divobj, state){ //fires each time a DIV is expanded/contracted
+//$: Access to jQuery
+//divobj: DOM reference to DIV being expanded/ collapsed. Use "divobj.id" to get its ID
+//state: "block" or "none", depending on state
+}
+
+animatedcollapse.init()
+
+</script>
+<link href="/static/nvd3/src/nv.d3.css" rel="stylesheet" type="text/css">
+
+<style>
+
+body {
+  overflow-y:scroll;
+}
+
+text {
+  font: 12px sans-serif;
+}
+
+svg {
+  display: block;
+}
+
+#chart1 svg {
+
+/*
+  margin: 50px;
+  Minimum height and width is a good idea to prevent negative SVG dimensions...
+  For example width should be =< margin.left + margin.right + 1,
+  of course 1 pixel for the entire chart would not be very useful, BUT should not have errors
+*/
+}
+#chart2 svg {
+  height: 100px;
+  width: 100px
+}
+#chart3 svg {
+  height: 100px;
+  width: 100px
+}
+#chart4 svg {
+  height: 100px;
+  width: 100px
+}
+#chart5 svg {
+  height: 100px;
+  width: 100px
+}
+#chart6 svg {
+  height: 100px;
+  width: 100px
+}
+#chart7 svg {
+  height: 100px;
+  width: 100px
+}
+#chart8 svg {
+  height: 100px;
+  width: 100px
+}
+</style>
+<script src="/static/nvd3/lib/d3.v3.js"></script>
+<script src="/static/nvd3/lib/fisheye.js"></script>
+<script src="/static/nvd3/nv.d3.js"></script>
+<script src="/static/nvd3/src/tooltip.js"></script>
+<script src="/static/nvd3/src/utils.js"></script>
+<script src="/static/nvd3/src/models/legend.js"></script>
+<script src="/static/nvd3/src/models/axis.js"></script>
+<script src="/static/nvd3/src/models/scatter.js"></script>
+<script src="/static/nvd3/src/models/line.js"></script>
+<script src="/static/nvd3/src/models/lineWithFisheye.js"></script>
+<script src="/static/nvd3/src/models/lineWithFisheyeChart.js"></script>
+<script src="/static/nvd3/src/models/lineWithFocusChart.js"></script>
+<script src="/static/nvd3/examples/stream_layers.js"></script>
+<script src="/static/nvd3/src/models/discreteBar.js"></script>
+<script src="/static/nvd3/src/models/discreteBarChart.js"></script>
+
+
+  </head>
+  <body>
+    
+
+<!-- Nav Bar -->
+
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="nav-bar right">
+       <ul class="button-group">
+         <li><a href="/" class="button">Home</a></li>
+         <li><a href="/tvprogram" class="button">TV Programs</a></li>
+         <li><a href="#" class="button">TV Channels</a></li>
+         <li><a href="#" class="button">Login</a></li>
+        </ul>
+      </div>
+      <h1>Social Cloud Television<br><small>from Cemnet@NTU</small></h1>
+      <hr />
+    </div>
+  </div>
+
+  <!-- End Nav -->
+
+
+  <!-- Main Page Content and Sidebar -->
+
+  <div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-10 columns" role="content">
+
+      <article>
+
+        <h3><a href="#">Longmen Express</a></h3>
+		 <div class="row">
+          <div class="large-6 columns">
+            <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa.</p>
+            <p>Boudin aliqua adipisicing rump corned beef. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
+          </div>
+          <div class="large-6 columns">
+            <img src="/static/images/LongmenExpress.jpg" />
+          </div>
+        </div>
+        
+      </article>
+
+      <hr />
+	<article>
+
+        <h3><a href="javascript:animatedcollapse.toggle('jason')">Tweets per Hour</a></h3>
+			 <div class="row" id="jason"  style="display:none">
+          <div id="chart1" height="600px">
+           
+    <svg style="height: 400px;width: 800px;"></svg>
+           <script>
+
+
+// Wrapping in nv.addGraph allows for '0 timeout render', stors rendered charts in nv.graphs, and may do more in the future... it's NOT required
+nv.addGraph(function() {  
+  var chart = nv.models.lineChart();
+
+  chart.xAxis // chart sub-models (ie. xAxis, yAxis, etc) when accessed directly, return themselves, not the parent chart, so need to chain separately
+      .tickFormat(function(d) { return d3.time.format('%d %b %H')(new Date(parseInt(d))); });
+
+  chart.yAxis
+      .axisLabel('Voltage (v)')
+      .tickFormat(d3.format('n'));
+  chart.margin({top: 50, right: 50, bottom: 50, left: 50});
+  d3.select('#chart1 svg')
+      .datum(getData())
+      .call(chart);
+
+  //TODO: Figure out a good way to do this automatically
+  nv.utils.windowResize(chart.update);
+  //nv.utils.windowResize(function() { d3.select('#chart1 svg').call(chart) });
+
+  return chart;
+});
+
+
+
+function getData() {
+	
+
+  var data = [];
+ 
+{% if hourTweetData %}
+	{% for row in hourTweetData %}
+		data.push({x: {{row.0}}, y: {{row.1}}}); 
+	{% endfor %}
+{% endif %}
+  return [
+    {
+      values: data,
+      key: "Tweets"
+     // color: "#ff7f0e"
+    }
+  ];
+}
+
+
+</script>
+           
+          </div>
+        </div>
+        
+		
+        
+      </article>
+      <hr />
+	<article>
+
+        <h3><a href="javascript:animatedcollapse.toggle('jason2')">Tweets per Day</a></h3>
+			 <div class="row" id="jason2" style="display:none">
+          <div id="chart2" height="600px">
+           
+    <svg style="height: 400px;width: 800px;"></svg>
+           <script>
+
+
+// Wrapping in nv.addGraph allows for '0 timeout render', stors rendered charts in nv.graphs, and may do more in the future... it's NOT required
+ nv.addGraph(function() {
+    var chart = nv.models.lineChart();
+  
+    chart.xAxis
+    .tickFormat(function(d) { return d3.time.format('%d %b')(new Date(parseInt(d))); });
+  
+    chart.yAxis
+        .tickFormat(d3.format('n'));
+    chart.margin({top: 50, right: 50, bottom: 50, left: 50});
+   d3.select('#chart2 svg')
+       .datum(getData2())
+       .call(chart);
+ 
+   nv.utils.windowResize(chart.update);
+ 
+   return chart;
+ });
+
+
+
+function getData2() {
+	
+
+  var data = [];
+ 
+{% if dayTweetData %}
+	{% for row in dayTweetData %}
+		data.push({x: {{row.0}}, y: {{row.1}}}); 
+	{% endfor %}
+{% endif %}
+  return [
+    {
+      values: data,
+      key: "Tweets"
+     // color: "#ff7f0e"
+    }
+  ];
+}
+
+
+</script>
+           
+          </div>
+        </div>
+        
+		
+        
+      </article>
+            </article>
+      <hr />
+	<article>
+
+        <h3><a href="javascript:animatedcollapse.toggle('jason5')">Comments per Hour</a></h3>
+			 <div class="row" id="jason5" style="display:none">
+          <div id="chart5">
+           
+    <svg style="height: 400px;width: 800px;"></svg>
+           <script>
+
+
+// Wrapping in nv.addGraph allows for '0 timeout render', stors rendered charts in nv.graphs, and may do more in the future... it's NOT required
+ nv.addGraph(function() {
+    var chart = nv.models.lineChart();
+  
+    chart.xAxis
+    .tickFormat(function(d) { return d3.time.format('%d %b %H')(new Date(parseInt(d))); });
+  
+    chart.yAxis
+        .tickFormat(d3.format('n'));
+    chart.margin({top: 50, right: 50, bottom: 50, left: 50});
+   d3.select('#chart5 svg')
+       .datum(getData5())
+       .call(chart);
+ 
+   nv.utils.windowResize(chart.update);
+ 
+   return chart;
+ });
+
+
+
+function getData5() {
+	
+
+  var data = [];
+ 
+{% if hourCommentData %}
+	{% for row in hourCommentData %}
+		data.push({x: {{row.0}}, y: {{row.1}}}); 
+	{% endfor %}
+{% endif %}
+  return [
+    {
+      values: data,
+      key: "Comments"
+     // color: "#ff7f0e"
+    }
+  ];
+}
+
+
+</script>
+           
+          </div>
+        </div>
+        
+		
+        
+      </article>
+       <hr />
+      	<article>
+
+        <h3><a href="javascript:animatedcollapse.toggle('jason6')">Comments per Day</a></h3>
+			 <div class="row" id="jason6" style="display:none">
+          <div id="chart6">
+           
+    <svg style="height: 400px;width: 800px;"></svg>
+           <script>
+
+
+// Wrapping in nv.addGraph allows for '0 timeout render', stors rendered charts in nv.graphs, and may do more in the future... it's NOT required
+ nv.addGraph(function() {
+    var chart = nv.models.lineChart();
+  
+    chart.xAxis
+    .tickFormat(function(d) { return d3.time.format('%d %b')(new Date(parseInt(d))); });
+  
+    chart.yAxis
+        .tickFormat(d3.format('n'));
+    chart.margin({top: 50, right: 50, bottom: 50, left: 50});
+   d3.select('#chart6 svg')
+       .datum(getData6())
+       .call(chart);
+ 
+   nv.utils.windowResize(chart.update);
+ 
+   return chart;
+ });
+
+
+
+function getData6() {
+	
+
+  var data = [];
+ 
+{% if dayCommentData %}
+	{% for row in dayCommentData %}
+		data.push({x: {{row.0}}, y: {{row.1}}}); 
+	{% endfor %}
+{% endif %}
+  return [
+    {
+      values: data,
+      key: "Comemnts"
+     // color: "#ff7f0e"
+    }
+  ];
+}
+
+
+</script>
+           
+          </div>
+        </div>
+        
+		
+        
+      </article>
+      <hr/>
+      	<article>
+
+        <h3><a href="javascript:animatedcollapse.toggle('jason3')">Reposts per Hour</a></h3>
+			 <div class="row" id="jason3" style="display:none">
+          <div id="chart3">
+           
+    <svg style="height: 400px;width: 800px;"></svg>
+           <script>
+
+
+// Wrapping in nv.addGraph allows for '0 timeout render', stors rendered charts in nv.graphs, and may do more in the future... it's NOT required
+ nv.addGraph(function() {
+    var chart = nv.models.lineChart();
+  
+    chart.xAxis
+    .tickFormat(function(d) { return d3.time.format('%d %b %H')(new Date(parseInt(d))); });
+  
+    chart.yAxis
+        .tickFormat(d3.format('n'));
+    chart.margin({top: 50, right: 50, bottom: 50, left: 50});
+   d3.select('#chart3 svg')
+       .datum(getData3())
+       .call(chart);
+ 
+   nv.utils.windowResize(chart.update);
+ 
+   return chart;
+ });
+
+
+
+function getData3() {
+	
+
+  var data = [];
+ 
+{% if hourRepostData %}
+	{% for row in hourRepostData %}
+		data.push({x: {{row.0}}, y: {{row.1}}}); 
+	{% endfor %}
+{% endif %}
+  return [
+    {
+      values: data,
+      key: "Reposts"
+     // color: "#ff7f0e"
+    }
+  ];
+}
+
+
+</script>
+           
+          </div>
+        </div>
+        
+		
+        
+      </article>
+       <hr />
+      	<article>
+
+        <h3><a href="javascript:animatedcollapse.toggle('jason4')">Reposts per Day</a></h3>
+			 <div class="row" id="jason4" style="display:none">
+          <div id="chart4">
+           
+    <svg style="height: 400px;width: 800px;"></svg>
+           <script>
+
+
+// Wrapping in nv.addGraph allows for '0 timeout render', stors rendered charts in nv.graphs, and may do more in the future... it's NOT required
+ nv.addGraph(function() {
+    var chart = nv.models.lineChart();
+  
+    chart.xAxis
+    .tickFormat(function(d) { return d3.time.format('%d %b')(new Date(parseInt(d))); });
+  
+    chart.yAxis
+        .tickFormat(d3.format('n'));
+    chart.margin({top: 50, right: 50, bottom: 50, left: 50});
+   d3.select('#chart4 svg')
+       .datum(getData4())
+       .call(chart);
+ 
+   nv.utils.windowResize(chart.update);
+  
+   return chart;
+ });
+
+
+
+function getData4() {
+	
+
+  var data = [];
+ 
+{% if dayRepostData %}
+	{% for row in dayRepostData %}
+		data.push({x: {{row.0}}, y: {{row.1}}}); 
+	{% endfor %}
+{% endif %}
+  return [
+    {
+      values: data,
+      key: "Reposts"
+     // color: "#ff7f0e"
+    }
+  ];
+}
+
+
+</script>
+           
+          </div>
+        </div>
+        
+		
+        
+      </article>
+             <hr />
+      	<article>
+
+        <h3><a href="javascript:animatedcollapse.toggle('jason7')">Tweets in 24 hours</a></h3>
+			 <div class="row" id="jason7" style="display:none">
+          <div id="chart7">
+           
+    <svg style="height: 400px;width: 800px;"></svg>
+           <script>
+
+
+// Wrapping in nv.addGraph allows for '0 timeout render', stors rendered charts in nv.graphs, and may do more in the future... it's NOT required
+
+
+
+
+
+
+nv.addGraph(function() {  
+  var chart = nv.models.discreteBarChart()
+      .x(function(d) { return d.x })
+      .y(function(d) { return Math.floor(d.y) })
+      .staggerLabels(true)
+      //.staggerLabels(historicalBarChart[0].values.length > 8)
+      .tooltips(false)
+      .showValues(false)
+      .transitionDuration(250)
+	  .color(['#486192']);
+
+  d3.select('#chart7 svg')
+      .datum(getData7())
+      .call(chart);
+
+  nv.utils.windowResize(chart.update);
+
+  return chart;
+});
+function getData7() {
+	var data= [];	 
+	{% if htData %}
+		{% for row in htData %}
+			data.push({x: {{row.0}}, y: {{row.1}}}); 
+		{% endfor %}
+	{% endif %}
+	  return [
+	    {
+	      values: data,
+	      key: "Reposts"
+	     // color: "#ff7f0e"
+	    }
+	  ];
+	}
+
+</script>
+           
+          </div>
+        </div>
+        
+		
+        
+      </article>
+        <hr/>
+      	<article>
+
+        <h3><a href="javascript:animatedcollapse.toggle('jason8')">Tweets&Comments&Reposts</a></h3>
+			 <div class="row" id="jason8" style="display:none">
+          <div id="chart8">
+           
+    <svg style="height: 400px;width: 800px;"></svg>
+           <script>
+
+
+// Wrapping in nv.addGraph allows for '0 timeout render', stors rendered charts in nv.graphs, and may do more in the future... it's NOT required
+ nv.addGraph(function() {
+    var chart = nv.models.lineChart();
+  
+    chart.xAxis
+    .tickFormat(function(d) { return d3.time.format('%d %b')(new Date(parseInt(d))); });
+  
+    chart.yAxis
+        .tickFormat(d3.format('n'));
+
+   d3.select('#chart8 svg')
+       .datum(getData8())
+       .call(chart);
+ 
+   nv.utils.windowResize(chart.update);
+ 
+   return chart;
+ });
+
+
+
+ function getData8() {
+		var  comment= [];
+		var tweet= [];
+		var repost=[];
+		{% if tripleData %}
+			{% for row in tripleData %}
+				comment.push({x: {{row.0}}, y: {{row.1}}}); 
+				tweet.push({x: {{row.0}}, y: {{row.2}}});
+				repost.push({x: {{row.0}}, y: {{row.3}}}); 
+			{% endfor %}
+		{% endif %}
+		  return [
+		    {
+		      values: comment,
+		      key: "Comments",
+		      color: "#0174df"
+		    },
+		    {
+		    	values: tweet,
+		    	key: "Tweets",
+		    	color: "#ff7f0e"
+		    },
+		    {
+		    	values: repost,
+		    	key: "Reposts",
+		    	color: "#2ca02c"
+		    }
+		  ];
+		};
+
+
+</script>
+           
+          </div>
+        </div>
+        
+		
+        
+      </article>
+    </div>
+
+    <!-- End Main Content -->
+
+  </div>
+
+  <!-- End Main Content and Sidebar -->
+
+
+  <!-- Footer -->
+
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-6 columns">
+          <p>&copy; Copyright Cemnet@NTU.</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="/">Home</a></li>
+            <li><a href="/tvprogram">TV Programs</a></li>
+            <li><a href="#">TV Channels</a></li>
+            <li><a href="#">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <script src="/static/main/css/jquery.js"></script>
+    <script src="/static/main/css/foundation.js"></script>
+    <script>
+      $(document).foundation();
+
+      var doc = document.documentElement;
+      doc.setAttribute('data-useragent', navigator.userAgent);
+    </script>
+  </body>
+	 <script src="/static/pace/pace.js"></script>
+  <link href="/static/pace/themes/pace-theme-loading-bar.css" rel="stylesheet" />
+</html>
+

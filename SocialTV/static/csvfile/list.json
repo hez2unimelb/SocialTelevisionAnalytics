@@ -1,0 +1,90 @@
+{
+	"name": "Social TV Analytics",
+	"sub":
+	[
+	{
+		"name": "TV Programs",
+		"sub": 
+			[
+			{
+				"name": "BaBaQuNaEr",
+				"dbName": "BaBaQuNaEr",
+				"description": "It's about five celebrity fathers and their young children going on various trips around the country. The kids are lovely and too cute and it would be my favorite program. Ratings constantly rose as the interaction between the children and their fathers, as well as a sparking romance between the children, gained attention. In this post I will review all about Dad, kid, and the review about this variety program.",
+				"finished": "True"
+			},
+			{
+				"name": "DayDayUp",
+				"dbName": "DayDayUp",
+				"description": "Day Day Up is a popular Chinese talk show broadcast on the Hunan Satellite TV Channel in order to advocate correct social values in preparation for the 2008 Beijing Olympics. The show is co-hosted by Wang Han, Ou Hansheng(also known as Ou Di), Tian Yuan, Qian Feng, Japanese actor Yano Koji, and South Korean pop singer Tanas. It has drawn great attention from the public especially student groups and other young people for its hilarious humor, style, and the adorable public figures who appear as guests.",
+				"finished": "True"
+			},
+			{
+				"name": "IfYouAretheOne",
+				"dbName": "FeiCheng",
+				"description": " If You Are the One is a Chinese dating game show hosted by Meng Fei. Based on the Australian game show Taken Out, the show is produced by Jiangsu Satellite Television (JSTV) and taped in Nanjing. It was first broadcast on January 15, 2010, and currently airs on weekend nights at 9:05 pm JSTV. In Australia, it is broadcast with English subtitles on Tuesday, Wednesday and Thursday nights at 7:45 on SBS Two.",
+				"finished": "True"
+			},
+			{
+				"name": "TheVoiceofChinaII",
+				"dbName": "GoodVoice",
+				"description": "The Voice of China is a Chinese reality talent show that premiered on 13 July 2012 on the Zhejiang Television network sponsored by Jiaduobao. Program recording was done at East China Normal University in Shanghai. The series is part of the The Voice franchise and is based on Dutch program The Voice of Holland. The deal was brokered by IPCN Ltd, a London and Shanghai based media company that is specifically focusing on the Chinese media market.",
+				"finished": "False"
+			},
+			{
+				"name": "HappyCamp",
+				"dbName": "HappyCamp",
+				"description": "Happy Camp is a Chinese variety show produced by Hunan Broadcasting System. The series debuted in 1997, and has remained in production since then due to its popularity. The show was hosted by the Happy Family: He Jiong, Li Weijia, Xie Na, Du Haitao, and Wu Xin. Happy Camp is one of China's most popular shows[citation needed], with a viewership of tens of millions.",
+				"finished": "True"
+			},
+			{
+				"name": "IamASinger",
+				"dbName": "IamSinger",
+				"description": "I Am a Singer differs from other televised music competitions in that the participants are all veteran musicians who have established music careers varying from mega stardom to relative obscurity. Due to this fact, and because none of the accomplished singers desire to be voted last amongst their peers and eliminated, the level of performance is usually high and acclaimed by critics and viewers alike.",
+				"finished": "False"
+			}
+			]
+	},
+	{
+		"name": "TV Series",
+		"sub":
+		[
+		{
+			"name": "LongmenExpress",
+			"dbName": "LongmenExpress",
+			"description": "Longmen biaoju began to rob Biao events together, biaoju less grandma Sheng Qiuyue is on the verge of bankruptcy, love to take advantage of the Ping An Bank side Lu Sanjin acquisition of biaoju, found that this is a mess, want to retreat has been. Then, joining the fray old dart head will not the fighting skill of Bai Jingqi caravan guards, who married into wealthy doctor Qiu Yingluo, the two generation of Kung Fu, Lu blue orange, covetous cook Cai Badou, former girlfriend all over the world, tertiary, conflict.",
+			"finished": "True"
+		},
+		{
+			"name": "BestTime",
+			"dbName": "BeautifulTime",
+			"description": "Best Time is a Chinese television series based on the novel The Most Beautiful Time by Tong Hua. Filming for the series started on April 2012. It is about a career young woman finds herself embroiled in a romantic entanglement with the man whom she had a crush with for years, and with another whom she beginning to have a close bond with.",
+			"finished": "False"
+		},
+		{
+			"name": "BlueWolf",
+			"dbName": "BlueWolf",
+			"description": "A Chinese television series about Anti-Japanese War.",
+			"finished": "True"
+		},
+		{
+			"name": "HotMum",
+			"dbName": "CoolMum",
+			"description": "A Chinese television series about a young mum.",
+			"finished": "True"
+		},
+		{
+			"name": "LanLingWang",
+			"dbName": "LanLingWang",
+			"description": "A prophecy foretold that victory goes to the one who has the priestess' blessing. Yang Xue Wu, the last priestess of her clan, unwittingly embroiled in a war between Northern Qi and Northern Zhou. Although she foresees a tragic fate for Lan Ling Wang, the military general of Northern Qi, she nonetheless falls in love with him and helps him win the war against Yuwen Yong, the Emperor of Northern Zhou. However, her action only brings him closer to his fate. As his standing among his people grows, so does the murderous jealousy in Crown prince's heart. Can she protect him when it's family who wants him dead?",
+			"finished": "False"
+		},
+		{
+			"name": "LittleDaddy",
+			"dbName": "LittleDad",
+			"description": "Little Daddy tells the story of Yu Guo, a Beijing car mechanic, who suddenly learns of the existence of his 7-year-old son born in the U.S., after the mother dies in a car crash. The girlfriend of our protagonist doesn't stop screaming for the first five episodes. Other family members take turns to scream after that, often at the behavior of the American-raised boy.",
+			"finished": "True"
+		}
+		]
+	}
+	]
+}

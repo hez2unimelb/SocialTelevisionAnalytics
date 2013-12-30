@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>D3.chart examples</title>
+		<script src="/static/chart/examples/scripts/lib/d3.v3.js"></script>
+		<script src="/static/chart/d3.chart.js"></script>
+		<script src="/static/chart/examples/scripts/bar-chart.js"></script>
+				<script src="/static/chart/examples/scripts/datasrc.js"></script>
+		
+		<script src="/static/chart/examples/scripts/fading-bar-chart.js"></script>
+		<script src="/static/chart/examples/scripts/chord-diagram.js"></script>
+		<script src="/static/chart/examples/scripts/improved-chord-diagram.js"></script>
+		<script src="/static/chart/examples/scripts/hybrid.js"></script>
+		<link rel="stylesheet" href="/static/chart/examples/styles/index2.css"></link>
+	</head>
+	<body>
+		<script>
+	(function(window, undefined) {
+
+  "use strict";
+
+
+  var dataSrc = new DataSrc();
+var barchart = d3.select("body")
+  .append("svg")
+  .attr("height", 500)
+  .attr("width", 1600)
+  .chart("BarChart");
+  
+
+barchart.draw([
+      	{% if categories %}
+           {% for category in categories %}
+               {name: '{{category.0}}', value: '{{category.1}}'},
+           {% endfor %}
+        {% else %}
+            <strong>There are no categories present.</strong>
+        {% endif %}
+]);
+  
+
+ 
+
+}(this));
+		</script>
+	</body>
+</html>

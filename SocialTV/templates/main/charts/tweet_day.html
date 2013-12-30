@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<link href="/static/nvd3/src/nv.d3.css" rel="stylesheet" type="text/css">
+
+<style>
+
+body {
+  overflow-y:scroll;
+}
+
+text {
+  font: 12px sans-serif;
+}
+
+svg {
+  display: block;
+}
+
+#chart svg {
+  height: 300px;
+  width: 500px
+  min-width: 100px;
+  min-height: 100px;
+/*
+  margin: 50px;
+  Minimum height and width is a good idea to prevent negative SVG dimensions...
+  For example width should be =< margin.left + margin.right + 1,
+  of course 1 pixel for the entire chart would not be very useful, BUT should not have errors
+*/
+}
+
+</style>
+<body>
+
+  <div id="chart" class='with-3d-shadow with-transitions'>
+    <svg style="height: 400px;width: 700px;"></svg>
+  </div>
+
+<script src="/static/nvd3/lib/d3.v3.js"></script>
+<script src="/static/nvd3/lib/fisheye.js"></script>
+<script src="/static/nvd3/nv.d3.js"></script>
+<script src="/static/nvd3/src/tooltip.js"></script>
+<script src="/static/nvd3/src/utils.js"></script>
+<script src="/static/nvd3/src/models/legend.js"></script>
+<script src="/static/nvd3/src/models/axis.js"></script>
+<script src="/static/nvd3/src/models/scatter.js"></script>
+<script src="/static/nvd3/src/models/lineWithFisheye.js"></script>
+<script src="/static/nvd3/src/models/lineWithFisheyeChart.js"></script>
+<script>
+
+
+// Wrapping in nv.addGraph allows for '0 timeout render', stors rendered charts in nv.graphs, and may do more in the future... it's NOT required
+nv.addGraph(function() {
+    var chart = nv.models.lineChart();
+  
+    chart.xAxis
+    .tickFormat(function(d) { return d3.time.format('%d %b')(new Date(parseInt(d))); });
+  
+    chart.yAxis
+        .tickFormat(d3.format('n'));
+    chart.margin({top: 50, right: 50, bottom: 50, left: 50});
+   d3.select('#chart svg')
+       .datum(getData())
+       .call(chart);
+ 
+   nv.utils.windowResize(chart.update);
+ 
+   return chart;
+ });
+
+
+
+function getData() {
+	
+
+  var data = [];
+ 
+{% if dayTweetData %}
+	{% for row in dayTweetData %}
+		data.push({x: {{row.0}}, y: {{row.1}}}); 
+	{% endfor %}
+{% endif %}
+  return [
+    {
+      values: data,
+      key: "Tweets"
+     // color: "#ff7f0e"
+    }
+  ];
+}
+
+
+
+
+</script>

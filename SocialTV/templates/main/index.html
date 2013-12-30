@@ -1,0 +1,177 @@
+
+<!doctype html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" data-useragent="Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social TV</title>
+
+    
+    <meta name="description" content="Social TV@NTU" />
+    
+    <meta name="author" content="zheavencity@gmail.com" />
+    <meta name="copyright" content="Cemnet@NTU Copyright (c) 2013" />
+
+    <link rel="stylesheet" href="/static/main/css/foundation.css" />
+    <script src="/static/main/css/modernizr.js"></script>
+    <link rel='stylesheet' type='text/css' href='/static/css/menu/styles.css' />
+        <link rel='stylesheet' type='text/css' href='/static/css/menu/styles2.css' />
+	<script src='/static/javascript/jquery.min.js'></script>
+	<script type='text/javascript' src='/static/javascript/menu_jquery.js'></script>
+  </head>
+  <body>
+    
+
+<!-- Nav Bar -->
+
+  <div class="row" >
+    <div class="large-7 columns">
+      <h1>Social Television Analytics<br><small>from Cemnet@NTU</small></h1>
+      
+    </div>
+    <div class="large-2 columns">
+    <p> </p>
+    </div>
+     <div class="large-4 columns">
+     <img src="/static/images/ntu_logo.jpg" height="10px">
+    </div>
+    <hr/>
+  </div>
+
+  <!-- End Nav -->
+
+
+  <!-- Main Page Content and Sidebar -->
+  <div class="row">
+
+    <!-- Sidebar -->
+
+    <aside class="large-3-fixed columns">
+
+     <div id='cssmenu2'>
+<ul>
+   <li class='active'><a href='/'><span>Home</span></a></li>
+   <li class='has-sub'><a href='#'><span>TV Programs</span></a>
+      <ul>
+      	{% if pNames %}
+      	{% for name in pNames %}
+      	   <li><a href='/one_program/{{name}}/'><span>{{name}}</span></a></li>
+		{% endfor %} 
+		{% endif %}
+      </ul>
+   </li>
+   <li class='has-sub'><a href='#'><span>TV Series</span></a>
+      <ul>
+      	{% if sNames %}
+      	{% for name in sNames %}
+      	   <li><a href='/one_program/{{name}}/'><span>{{name}}</span></a></li>
+		{% endfor %} 
+		{% endif %}
+      </ul>
+   </li>
+   <li class='last'><a href='#'><span>Contact</span></a></li>
+</ul>
+</div>
+
+    </aside>
+  
+    <!-- End Sidebar -->
+    <!-- Main Blog Content -->
+    <div class="large-9 columns" role="content">
+
+      <article>
+
+        <h3><a href="#">What's social TV?</a></h3>
+
+        <div class="row">
+          <div class="large-6 columns">
+            <p>Social TV usually refers to the use of social media platforms to enrich the experience of consuming a TV program and to possibly extend its audience. Specifically, social TV embraces two flavors of “social” in its operations, including:</p>
+            <ul>
+				<li>To enable interactivity among viewers and devices in TV watching experience</li>
+				<li>To mine social media data to bring value proposition to TV value chain </li>
+			</ul>
+          </div>
+          <div class="large-6 columns">
+            <img src="/static/images/image14.png" />
+          </div>
+        </div>
+		<div class="row">
+		 <div class="large-12 columns">
+		 <p>
+Features related to the first aspect have been implemented in the Cloud Social TV project. In this specification, we focus on the second aspect, roughly named Social TV Analytics. In particular, social TV analytics aims to craw social media data around TV programs, and reveal the hidden patterns to benefit the whole TV value chain, from audience, TV channel operator, ad agencies, to program producer, via the following ways:
+</p>
+            <ul>
+				<li>Instant Measurement of Engagement: our system tracks engagement across social platforms and segment by providing statistics of related microblog messages, including total volume of microblog volumes, gender, unique user count, geo-location distribution etc. </li>
+				<li>Real-time understanding of success and failure:   our system analyzes social TV commentary to see which episodes, plotlines, and characters are resonating with your audience.  Furthermore, our system can provide comparison on TV competitors, brand conversations, TV drama, etc. </li>
+				<li>Deep knowledge of their consumer and the brand affinity:  our system can track brand response caused by specific TV programs, analyze the brand affinity with TV programs and their audience, and determine which shows and content offer the ideal environment for a given brand. </li>
+			</ul>
+		 </div>
+		</div>
+      </article>
+
+      <hr />
+      <article>
+		
+		<div class="row">
+          <div class="large-6 columns">
+           <h3>Social Cloud TV</h3>
+
+           <iframe width="400" height="300" src="//www.youtube.com/embed/VVZz0kuMB_M?rel=0" frameborder="0" allowfullscreen></iframe>
+          
+          </div>
+          <div class="large-4 columns">
+              <h3>Related Links</h5>
+      <ul class="side-nav">
+        <li><a href="http://www.ntu.edu.sg/">Nanyang Technological University</a></li>
+        <li><a href="http://sce.ntu.edu.sg/Pages/Home.aspx">SCE@NTU</a></li>
+        <li><a href="http://www.cemnet.ntu.edu.sg/">Cemnet</a></li>
+        <li><a href="http://www.ntu.edu.sg/home/ygwen/">Our Group</a></li>
+      </ul>
+          </div>
+        </div>
+       
+      </article>
+
+      <hr />
+
+    </div>
+
+    <!-- End Main Content -->
+
+
+  </div>
+
+  <!-- End Main Content and Sidebar -->
+
+
+  <!-- Footer -->
+
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-6 columns">
+          <p>&copy; Copyright Cemnet@NTU.</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="/">Home</a></li>
+            <li><a href="tvprogram/">TV Programs</a></li>
+            <li><a href="#">TV Channels</a></li>
+            <li><a href="#">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <script src="/static/main/css/jquery.js"></script>
+    <script src="/static/main/css/foundation.js"></script>
+    <script>
+      $(document).foundation();
+
+      var doc = document.documentElement;
+      doc.setAttribute('data-useragent', navigator.userAgent);
+    </script>
+  </body>
+</html>

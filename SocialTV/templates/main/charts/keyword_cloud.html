@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="/static/d3/d32.js"></script>
+<script src="/static/d3/d3.layout.cloud.js"></script>
+<script id="csv" type="text/csv">,
+{% if keywordCloud %}{% for category in keywordCloud %}{{category.0}},{{category.1}} 
+{% endfor %} {% endif %}
+</script>
+<script charset="UTF-8">
+  var fill = d3.scale.category20();
+
+  d3.layout.cloud().size([700, 700])
+      .words(getWords())
+      .padding(5)
+      .rotate(function() { return ~~(Math.random() * 2) * 90; })
+      .font("Impact")
+      .fontSize(function(d) { return d.size; })
+      .on("end", draw)
+      .start();
+
+  function draw(words) {
+    d3.select("body").append("svg")
+        .attr("width", 700)
+        .attr("height", 700)
+      .append("g")
+        .attr("transform", "translate(350,350)")
+      .selectAll("text")
+        .data(words)
+      .enter().append("text")
+        .style("font-size", function(d) { return d.size + "px"; })
+        .style("font-family", "Impact")
+        .style("fill", function(d, i) { return fill(i); })
+        .attr("text-anchor", "middle")
+		.attr("transform", function(d) {
+          return "translate(" + [d.x, d.y] + ")";
+        })
+        .text(function(d) { return d.text; });
+  }
+  function getWords()
+  {
+/*  	var data=[]
+    {% if keywordCloud %}
+		{% for row in keywordCloud %}
+			data.push({text: {{row.0}}, size: {{row.1}}}); 
+		{% endfor %}
+	{% endif %}
+	 for (var i=0;i<data.length;i++)
+	    {
+		  data[i].size=parseInt(data[i].size*500);
+	    }  */
+	var rawData=processData(d3.select('#csv').text());
+	var data=[];
+	for (var i=0;i<rawData.length;i++)
+	{
+		wordSize=parseInt(parseFloat(rawData[i][1])*1000);
+		data.push({text: rawData[i][0], size: wordSize}); 
+	}
+	console.log(data);
+	return data;
+  }
+  function encode_utf8(s) {
+	  return unescape(encodeURIComponent(s));
+	}
+
+	function decode_utf8(s) {
+	  return decodeURIComponent(escape(s));
+	}
+
+	function processData(allText) {
+	    var allTextLines = allText.split(/\r\n|\n/);
+	    var headers = allTextLines[0].split(',');
+	    var lines = [];
+
+	    for (var i=1; i<allTextLines.length; i++) {
+	        var data = allTextLines[i].split(',');
+	        if (data.length == headers.length) {
+
+	            var tarr = [];
+	            for (var j=0; j<headers.length; j++) {
+	                tarr.push(data[j]);
+	            }
+	            lines.push(tarr);
+	        }
+	    }
+	return lines
+	}
+
+</script>

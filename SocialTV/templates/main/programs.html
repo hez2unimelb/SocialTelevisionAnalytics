@@ -1,0 +1,172 @@
+
+<!doctype html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" data-useragent="Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social TV</title>
+
+    
+    <meta name="description" content="Social TV@NTU" />
+    
+    <meta name="author" content="zheavencity@gmail.com" />
+    <meta name="copyright" content="Cemnet@NTU Copyright (c) 2013" />
+ <link rel="stylesheet" href="/static/tabbed/css/style.css">
+    <link rel="stylesheet" href="/static/main/css/foundation.css" />
+    <script src="/static/main/css/modernizr.js"></script>
+    <link rel='stylesheet' type='text/css' href='/static/css/menu/styles.css' />
+	<script src='/static/javascript/jquery.min.js'></script>
+	<script type='text/javascript' src='/static/javascript/menu_jquery.js'></script>
+	
+  </head>
+  <body>
+    
+
+<!-- Nav Bar -->
+
+  <div class="row">
+    <div class="large-12 columns">
+      <h1>Social Cloud Television<br><small>from Cemnet@NTU</small></h1>
+      <hr />
+    </div>
+  </div>
+
+  <!-- End Nav -->
+
+
+  <!-- Main Page Content and Sidebar -->
+
+  <div class="row">
+
+    <!-- Sidebar -->
+
+    <aside class="large-3 columns">
+
+     <div id='cssmenu'>
+<ul>
+   <li class='active'><a href='/'><span>Home</span></a></li>
+   <li class='has-sub'><a href='#'><span>TV Programs</span></a>
+      <ul>
+         <li><a href='#'><span>Longmen Express</span></a></li>
+         <li><a href='#'><span>Dad, Where are you going?</span></a></li>
+         <li class='last'><a href='#'><span>Hot Mom!</span></a></li>
+      </ul>
+   </li>
+   <li class='has-sub'><a href='#'><span>TV Channels</span></a>
+      <ul>
+         <li><a href='#'><span>About</span></a></li>
+         <li class='last'><a href='#'><span>Location</span></a></li>
+      </ul>
+   </li>
+   <li class='last'><a href='#'><span>Contact</span></a></li>
+</ul>
+</div>
+
+    </aside>
+  
+    <!-- End Sidebar -->
+    <!-- Main Blog Content -->
+    <div class="large-9 columns" role="content">
+
+      <article>
+
+       
+        <h3><a href="#">Longmen Express</a></h3>
+		 <div class="row">
+          <div class="large-6 columns">
+            <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa.</p>
+            <p>Boudin aliqua adipisicing rump corned beef. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
+          </div>
+          <div class="large-6 columns">
+            <img src="/static/images/LongmenExpress.jpg" />
+          </div>
+        </div>
+
+      </article>
+
+      <hr />
+      <article>
+			
+		  <section class="container">
+    <nav>
+      <ul>
+         <li class="active" onClick="insert();"><a href="#">Tweets per Hour</a></li>
+        <li><a href="#">Tweets per Day</a></li>
+        <li><a href="#">Comments per Hour</a></li>
+        <li><a href="#">Comments per Day</a></li>
+      </ul>
+    </nav>
+        <nav>
+      <ul>
+        <li><a href="#">Reposts per Hour</a></li>
+        <li><a href="#">Reposts per Day</a></li>
+         <li><a href="#">Tweets in 24 hours</a></li>
+         <li><a href="#">Tweets&Comments&Reposts</a></li>
+      </ul>
+    </nav>
+  </section>
+<script>
+function insert() {
+	  var url = '/hour_tweets',
+	    holder = document.getElementById('iframe-holder'),
+	    frame = holder.getElementsByTagName('iframe')[0];
+	  frame.style.display = "block";
+	  frame.src = url;
+	  document.getElementById('iframe-container').insertBefore(holder, null);
+	}
+	
+</script>
+<div id="iframe-container"></div>
+<div id="iframe-holder">
+  <iframe width=800px height=600px scrolling=no src="/day_tweets"></iframe>
+</div>
+      </article>
+
+      <hr />
+
+    </div>
+
+    <!-- End Main Content -->
+
+<script>
+function change(arg)
+{
+	reload();
+}
+</script>
+  </div>
+
+  <!-- End Main Content and Sidebar -->
+
+
+  <!-- Footer -->
+
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-6 columns">
+          <p>&copy; Copyright Cemnet@NTU.</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="/">Home</a></li>
+            <li><a href="tvprogram/">TV Programs</a></li>
+            <li><a href="#">TV Channels</a></li>
+            <li><a href="#">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <script src="/static/main/css/jquery.js"></script>
+    <script src="/static/main/css/foundation.js"></script>
+    <script>
+      $(document).foundation();
+
+      var doc = document.documentElement;
+      doc.setAttribute('data-useragent', navigator.userAgent);
+    </script>
+  </body>
+</html>
